@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<meta charset="utf-8">
+		<title>AngularJS with PHP and mysql database</title>
+	</head>
+	<body>
+	<div ng-app="myFetch" ng-controller="fetchCtrl">
+		<ul>
+  <li ng-repeat="x in register">
+    {{ x.name + ', ' + x.email }}
+  </li>
+</ul>
+		</div>
+	</body>
+	<script src="fetch.js"></script>
+</html>

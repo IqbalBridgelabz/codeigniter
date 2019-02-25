@@ -1,0 +1,137 @@
+.dashboardToolBar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  opacity: 0.75;
+}
+
+.iconAndTitle {
+  display: flex;
+  padding-right: 115px;
+
+}
+
+.dashboardTitle {
+  vertical-align: middle;
+  line-height: 49px;
+  padding-left: 15px;
+}
+
+.searchToolBar {
+
+  display: flex;
+  //margin: auto;
+  width: 60%;
+}
+
+.searchInputBar {
+  width: 70%;
+  border: none;
+  outline: none;
+  font-size: inherit;
+}
+
+.mat-toolbar-single-row {
+  height: 64px;
+}
+
+.accountButton {
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  border-radius: 30px;
+  font-size: x-large;
+
+}
+
+.sidenavBar {
+  position: absolute;
+  min-width: 300px;
+  top: 80px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: #ffffff;
+}
+
+.sideNavList {
+  width: 300px;
+  height: 98.6%;
+  background-color: #ffffff;
+}
+
+.sideNavListItems,
+.sideNavlistItemsColored {
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  width: 300px;
+  font-size: 15px;
+  padding: 8px;
+  background-color: #ffffff;
+  color: #5f6368;
+  align-items: baseline;
+  text-align: left;
+}
+
+.sideNavlistItemsColored {
+  background-color: #ffda74 !important;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.sideNavListItems .mat-icon,
+.sideNavlistItemsColored .mat-icon {
+  padding-left: 10px;
+  padding-right: 30px;
+}
+
+.sideNavListItems:hover {
+  background-color: #e6e6e6;
+}
+
+.sidenavContent {
+  background-color: rgb(255, 255, 255); // max-width: 600px;
+  max-width: -webkit-fill-available;
+  margin-left: 200px;
+}
+
+.accountMenu {
+
+  display: flex;
+  width: 350px;
+  height: 130px;
+
+
+}
+
+/deep/ .mat-menu-panel {
+
+  max-width: unset !important;
+  justify-content: space-around;
+
+}
+
+.accountMenuImageDiv .accountMenuImage {
+  margin: 17px 0 0 10px;
+  padding-left: 10px;
+  border-radius: 60px;
+  border: none;
+  outline: none;
+  width: 96px;
+  height: 96px;
+  background-color: #3a7ac8f3;
+  font-size: 72px;
+}
+
+.accountMenuItems {
+  margin: 15px 0 0 0px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.accountMenuLogoutButton {
+  margin: 10px 0 0 0;
+}
+/deep/ .mat-drawer-inner-container{
+
+  overflow: hidden !important;
+}

@@ -1,116 +1,59 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
-
-class User extends CI_Controller
-{
-
-    public function __construct()
-    {
+defined('BASEPATH') OR exit('No direct script access allowed');
+ 
+class User extends CI_Controller {
+ 
+    public function __construct() {
         parent::__construct();
-        $this->load->model("Database", "database");
-        $this->load->helper('form');
+        $this->load->helper(array('form', 'url'));
+        $this->load->library(['form_validation','session']);
+        $this->load->database();
     }
-
-    public function index()
-    {
-        $this->login();
-    }
-
-    public function login()
-    {
-        $this->load->view("login");
-    }
-
-    public function plogin()
-    {
-        $this->load->view("plogin");
-    }
-
-    public function register()
-    { 
-		//if ($_SERVER['REQUEST_METHOD'] == 'POST') {			
-
-			$Fname=$_POST['FirstName'];
-			$Lname=$_POST['LastName'];
-			$Email=$_POST['Email'];
-		    $query = "SELECT * FROM login";
-			//$this->database->insertUser($data);
-			 $query = "INSERT INTO  login (Firstname,LastName,Email) VALUES('" . $Fname . "','" . $Lname . "','" .$Email."')";
-			// $stmt->execute($stmt);
-			// $this->excute($query);
-			 $this->queryRun($query);
-		
-			 // $this->excute($query);
-			//echo  json_encode( $query );
-
-            // $data = $this->input->post();
-            // if (($error = $this->validation($data)) !== true) {
-            //     $this->returnStatus($error, 'error');
-            // } else {
-            //     unset($data["rpassword"]);
-            //     $this->database->insertUser($data);
-            //     $this->returnStatus(base_url()."user/login", 'success');
-            // }
-       // }
-    }
-
-    public function validation($data = null)//$data)
-    {
-        $this->load->library('form_validation');
-        $this->form_validation->set_error_delimiters('', '');
-        if ($data !== null) {
-            $this->form_validation->set_data($data);
-        }
-        $this->form_validation->set_rules('fname', 'First Name', 'required');
-        $this->form_validation->set_rules('lname', 'Last Name', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
-        $this->form_validation->set_rules('password', ' ', 'required|min_length[8]|matches[password]');
-        $this->form_validation->set_rules(
-            'email',
-            'Email Address',
-            'required|valid_email|is_unique[users.email]',
-            [
-                'required' => 'You have not provided email.',
-                'is_unique' => 'email already exists.'
-            ]
-        );
-
-        if ($this->form_validation->run() == false) {
-            $error =[];
-            foreach ($data as $key => $value) {
-                $error[$key] = form_error($key);
+ 
+    public function login() {
+ 
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+ 
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('login_view');
+        } else {
+ 
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
+ 
+            $user = $this->db->get_where('users',['email' => $email])->row();
+            
+            if(!$user) {
+                $this->session->set_flashdata('login_error', 'Please check your email or password and try again.', 300);
+                redirect(uri_string());
             }
-            return $error;
-        } else {
-            return true;
-        }
+ 
+    
+            if(!password_verify($password,$user->password)) {
+                $this->session->set_flashdata('login_error', 'Please check your email or password and try again.', 300);
+                redirect(uri_string());
+            }
+ 
+             $data = array(
+                    'user_id' => $user->user_id,
+                    'first_name' => $user->first_name,
+                    'last_name' => $user->last_name,
+                    'email' => $user->email,
+                    );
+ 
+                
+            $this->session->set_userdata($data);
+ 
+            //redirect('/'); // redirect to home
+            echo 'Login success!'; exit;
+            
+        }        
     }
-
-    public function returnStatus($message, $status)
-    {
-        $er = include_once('errorcode.php');
-        $report = [];
-        $report['code'] = $er[$status];
-        $report['message'] = $message;
-        $this->output->set_content_type('application/json');
-        $this->output->set_output(json_encode($report));
-        $string = $this->output->get_output();
-        echo $string;
-        exit;
-        //echo json_encode($report);
-	}
-	public function queryRun($query)
-    {
-        if (!($res = $this->db->query($query))) {
-            $error = $this->db->error(); // Has keys 'code' and 'message'
-            echo json_encode(array("status" => 500, "message" => $error["message"]), JSON_PRETTY_PRINT);
-        } else {
-         //   var_dump($res);
-            if (is_bool($res))
-                echo json_encode(array("status" => 200, "message" => "succes"), JSON_PRETTY_PRINT);
-            else
-                echo json_encode(array("status" => 200, "message" => $res->result()), JSON_PRETTY_PRINT);
-        }
+ 
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('user/login');
     }
+ 
 }
-?>

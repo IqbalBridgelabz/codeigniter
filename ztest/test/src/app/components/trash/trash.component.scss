@@ -1,0 +1,24 @@
+.items{
+
+    min-width: 240px;
+    min-height: 104px;
+
+}
+/deep/ .mat-icon-button {
+
+    width: 35px !important;
+    height: 35px !important;
+
+}
+/deep/ .mat-card-header-text {
+    margin: 0 0 !important; 
+}
+.noteCard{
+
+    margin: 10px;
+    width: 250px;
+    // min-width: 130px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    
+    }

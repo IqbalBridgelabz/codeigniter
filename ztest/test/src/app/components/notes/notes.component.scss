@@ -1,0 +1,79 @@
+// .notes {
+//   margin-top: 30px;
+//   margin-left: 100px;
+//   max-width: 830px;
+//   flex-wrap: wrap;
+//   position: relative;
+
+//   margin: 30px auto 0 auto;
+// }
+
+.matCardGrid {
+
+  display: flex;
+  // margin: 10px;
+  width: 200px;
+  // min-width: 130px;
+  // flex-direction: row;
+  margin: 8px;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+
+}
+
+.matCardList {
+  display: flex;
+  ;
+  // flex-direction: column;
+
+  margin-top: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 570px;
+  // min-width: 130px;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+
+}
+
+
+
+// .noteCards{
+
+//     //width: 240px;
+//     margin: 10px;
+
+// }
+
+// .noteCard {
+
+//   margin: 10px;
+//   width: 250px;
+//   // min-width: 130px;
+//   border: 1px solid #dadce0;
+//   border-radius: 8px;
+// }
+
+// .pinIcon{
+
+//     height: 10px;
+//     margin-left: auto; 
+
+// }
+/deep/ .mat-card-header-text {
+  margin: 0 0 !important;
+}
+
+/deep/ .mat-icon-button {
+
+  width: 35px !important;
+  height: 35px !important;
+
+}
+
+.pinnedOthers {
+
+  margin: 15px;
+  font-size: 10px;
+
+}

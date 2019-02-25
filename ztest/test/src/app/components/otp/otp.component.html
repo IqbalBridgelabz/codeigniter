@@ -1,0 +1,10 @@
+<form [formGroup]="otpForm " (ngSubmit)="onSubmit()" novalidate>
+  <div class="formgroup">
+    <h1>Enter One Time Password</h1>
+    <mat-form-field>
+      <input matInput type="OTP" [(ngModel)]="user.otp" formControlName="otp" class="form-control"
+        [ngClass]="{'is-invalid': submitted && user.otp.error}" placeholder="otp" />
+    </mat-form-field>
+    <button mat-button type="submit" class="otpButton">Submit OTP</button>
+  </div>
+</form>

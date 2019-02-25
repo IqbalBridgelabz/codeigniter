@@ -1,0 +1,40 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+  <div class="formgroup">
+    <h1>Register</h1>
+
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="user.firstName" formControlName="firstName" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && user.firstName.errors }" placeholder="First Name" autocomplete="off" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="user.lastName" formControlName="lastName" class="form-control" [ngClass]="{'is-invalid': submitted && user.lastName.error}"
+        placeholder="Last Name" autocomplete="off" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="phoneNumber" [(ngModel)]="user.phoneNumber" formControlName="phoneNumber" class="form-control"
+        [ngClass]="{'is-invalid': submitted && user.password.error}" placeholder="Phone Number" autocomplete="off" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="email" [(ngModel)]="user.email" formControlName="email" class="form-control" [ngClass]="{'is-invalid': submitted && user.email.error}"
+        placeholder="Email" autocomplete="off" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="password" [(ngModel)]="user.password" formControlName="password" class="form-control"
+        [ngClass]="{'is-invalid': submitted && user.password.error}" placeholder="password" autocomplete="off" /> 
+    </mat-form-field>
+
+    <button mat-button type="submit" class="registerButton">
+      Register
+    </button>
+
+    <button mat-button routerLink="/login" class="registerButton">
+      Existing User?
+    </button>
+
+  </div>
+
+</form>

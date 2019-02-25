@@ -1,0 +1,22 @@
+ <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+
+    <!-- <mat-grid-list cols="3" rowHeight="2:1" class="notes"> -->
+  
+    <div *ngFor=" let item of noteData">
+  
+      <!-- <mat-grid-tile> -->
+  
+      <div class="noteCards" *ngIf="item.archive && !item.pin && !item.trash">
+  
+        <app-cards [item]=item (messageEvent)="receiveMessage($event)"> </app-cards>
+  
+      </div>
+  
+      <!-- </mat-grid-tile> -->
+  
+    </div>
+  
+    <!-- </mat-grid-list> -->
+  
+  </div>
+  

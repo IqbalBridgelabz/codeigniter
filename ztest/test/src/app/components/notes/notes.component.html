@@ -1,0 +1,29 @@
+<!-- <div class="notes" fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start"> -->
+<div fxLayout="row" class="notes" fxLayoutAlign="space-evenly center" fxLayout="{{view}}">
+  <div class="pinnedOthers" *ngIf="counter>0" [ngStyle]="{'width': cardWidth }">PINNED</div>
+
+  <div *ngFor=" let item of noteData">
+
+    <div class="noteCard" *ngIf="!item.trash && !item.archive && item.pin">
+
+      <app-cards [item]=item (messageEvent)="receiveMessage($event)" [ngClass]="{'matCardGrid': view=='row','matCardList': view=='column'}"
+      > </app-cards>
+
+    </div>
+
+  </div>
+
+  <div class="pinnedOthers" *ngIf="counter>0" [ngStyle]="{'width': cardWidth }">OTHERS</div>
+
+  <div *ngFor=" let item of noteData">
+
+    <div class="noteCard" *ngIf="!item.trash && !item.archive && !item.pin">
+
+      <app-cards [item]=item (messageEvent)="receiveMessage($event)" [ngClass]="{'matCardGrid': view=='row','matCardList': view=='column'}"
+      > </app-cards>
+
+    </div>
+
+  </div>
+
+</div>

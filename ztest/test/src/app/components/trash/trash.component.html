@@ -1,0 +1,93 @@
+<div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+
+  <div *ngFor=" let item of noteData" >
+
+    <div class="noteCard"  *ngIf="item.trash">
+
+      <!-- <app-cards [item]=item></app-cards> -->
+
+
+      <mat-card class="items"  [ngStyle]="{'backgroundColor': item.color}">
+
+        <div>
+
+          <mat-card-header>
+
+            <mat-card-title>{{item.title}}</mat-card-title>
+
+          </mat-card-header>
+
+          <mat-card-content> {{item.body}}</mat-card-content>
+
+        </div>
+
+        <mat-card-actions align="start">
+
+          <button mat-icon-button matTooltip="More" [matMenuTriggerFor]="moreMenu" [matMenuTriggerData]="{item:item}">
+
+            <mat-icon class="mat-18">more_vert</mat-icon>
+
+          </button>
+
+        </mat-card-actions>
+
+      </mat-card>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<mat-menu #moreMenu="matMenu">
+
+  <ng-template matMenuContent let-item="item">
+
+    <button mat-menu-item (click)="deleteNote(item)"> Delete forever </button>
+    <button mat-menu-item (click)="addTrash(item)" > Restore </button>
+
+  </ng-template>
+
+</mat-menu>
+
+<!-- <div>
+
+  <mat-card>
+
+    <div>
+
+      <mat-card-header>
+
+        <mat-card-title>{{item.title}}</mat-card-title>
+
+      </mat-card-header>
+
+      <mat-card-content> {{item.body}}</mat-card-content>
+
+    </div>
+
+    <mat-card-actions align="start">
+
+      <button mat-icon-button matTooltip="More" [matMenuTriggerFor]="moreMenu" [matMenuTriggerData]="{item:item}">
+
+        <mat-icon class="mat-18">more_vert</mat-icon>
+
+      </button>
+
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>
+
+<mat-menu #moreMenu="matMenu">
+
+  <ng-template matMenuContent let-item="item">
+
+    <button mat-menu-item (click)="deleteNote(item)"> Delete forever </button>
+    <button mat-menu-item (click)="addTrash(item)"> Restore </button>
+
+  </ng-template>
+
+</mat-menu> -->

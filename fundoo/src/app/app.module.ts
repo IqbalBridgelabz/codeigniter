@@ -9,20 +9,25 @@ import { MatSelectModule } from '@angular/material';//
 import {MatIconModule} from '@angular/material/icon';//
 import { MyMaterialModule } from  './material.module';//
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
-import { RegistrationComponentComponent } from './registration-component/registration-component.component';
-import { LoginComponentComponent } from './login-component/login-component.component';
+
 import { RouterModule, Routes } from '@angular/router';
-import { DataService } from './data.service';
+
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationComponentComponent,
-    LoginComponentComponent
+
+    LoginComponent,
+    RegistrationComponent
   ],
 
 
 imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MyMaterialModule,
     MatIconModule,
@@ -33,18 +38,14 @@ imports: [
     MatFormFieldModule,
     MyMaterialModule,
     BrowserAnimationsModule,
-    MatButtonModule, MatCheckboxModule,
-    RouterModule.forRoot([
-      { path: '', redirectTo: '/', pathMatch: 'full' },
-      { path: 'register', component: RegistrationComponentComponent },
-      { path: 'login', component: LoginComponentComponent },
-
-
-    ]),
+    MatButtonModule,
+    MatCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
 
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -56,5 +56,6 @@ $route['index'] = 'Test/index';
 $route['hello'] = 'Test/hello';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['register']= 'Register/insertUser';
 
 

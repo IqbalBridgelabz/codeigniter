@@ -1,22 +1,24 @@
-<div align = "center">
-  <mat-toolbar>
-    <span>LOGIN</span>
-  </mat-toolbar>
-  <mat-card class="my-card">
-    <mat-card-content>
-      <form class="my-form">
-        <mat-form-field class="full-width">
-          <mat-label>Email</mat-label>
-          <input matInput [formControl]='Email' placeholder="Email" name="email">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <mat-label>Password</mat-label>
-          <input matInput [formControl]='Password' placeholder="Password" name="password">
-        </mat-form-field>
-      </form>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button (click)="login()" color="primary">LOGIN</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+<div class="center" fxLayout="column" fxLayoutAlign="center center">
+  <div fxLayoutAlign="center center">
+    <mat-card class="my-card">
+      <div fxLayoutAlign="center center">
+        <h1 class="login">LOGIN</h1>
+      </div>
+      <mat-card class="mycard">
+        <mat-card-content>
+          <form class="my-form">
+            <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <input matInput [formControl]='Email' placeholder="Email" name="email">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input matInput [formControl]='Password' placeholder="Password" type="password" name="password">
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <button mat-raised-button (click)="login()" color="primary">LOGIN</button>
+          <button mat-raised-button (click)="redirectTo()" color="primary">New User</button>
+        </div>
+      </mat-card>

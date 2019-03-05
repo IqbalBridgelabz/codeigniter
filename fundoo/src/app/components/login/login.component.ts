@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   Password = new FormControl('',{
     // Validators
   })
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,5 +22,7 @@ export class LoginComponent implements OnInit {
     console.log(this.Email.value);
     console.log(this.Password.value);
   }
-
+  redirectTo() {
+    this.router.navigate(['register']);
+  }
 }

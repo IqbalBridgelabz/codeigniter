@@ -5,7 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: LoginComponent,pathMatch :'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
 ];

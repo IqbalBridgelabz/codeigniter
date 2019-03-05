@@ -4,18 +4,19 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//import {MatFormFieldModule} from '@angular/material/form-field';//
+
 import { MatSelectModule } from '@angular/material';//
 import {MatIconModule} from '@angular/material/icon';//
 import { MyMaterialModule } from  './material.module';//
-import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule } from '@angular/material';//
 
 import { RouterModule, Routes } from '@angular/router';
-
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,13 +37,13 @@ imports: [
     MatSelectModule,//
     AppRoutingModule,
     MatFormFieldModule,
-    MyMaterialModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    ShowHidePasswordModule
   ],
 
   providers: [],
